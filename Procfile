@@ -1,1 +1,0 @@
-web: gunicorn marvel_inventory:app --preload --timeout 60
