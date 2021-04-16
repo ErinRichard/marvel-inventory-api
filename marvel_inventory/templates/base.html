@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Enter your description here"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+<link rel="icon" type="image/png" href="../static/images/favicon-32x32.png">
+
+<script src="https://kit.fontawesome.com/00e52a2c97.js" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anton">
+
+<style>
+.navbar-brand {font-family: "Anton", sans-serif;}
+
+</style>
+
+
+<link rel="stylesheet" href="../static/css/main.css">
+<title>Rangers 59</title>
+</head>
+<body>
+
+ <!--Navigation Bar Start-->
+ <div class="container">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark" style="background-color:#000;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{  url_for('site.home')  }}">
+                <img class="navbar-brand logo" src="../static/images/marvel_inv_logo_gray_circle.png" alt="Rangers 59 Logo"class="d-inline-block align-text-top src">
+                RANGERS 59<br>
+
+                
+            </a>
+                <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ url_for('site.home') }}">Home</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                                
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About Rangers 59</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('site.profile') }}">Profile</a>
+                    </li>
+
+                </ul>
+
+                
+            <form class="d-flex">
+                
+                {% if current_user.is_authenticated %}
+                <a href="{{ url_for('auth.logout') }}"><button class="btn btn-outline-success button1" type="button">Log Out</button>
+                </a>
+
+                {% else %}
+                <a href="{{ url_for('auth.signin') }}"><button class="btn btn-outline-success button1" type="button">Sign In</button>
+                </a>
+
+                <a href="{{ url_for('auth.signup') }}"><button class="btn btn-outline-success button2" type="button">Sign Up for Free</button>
+                </a>
+                {% endif %}
+
+            </form>
+        </div>
+    </nav>
+</div>
+<!--End of Navigation Bar-->            
+
+    <!-- Set up block content for Flask -->
+    <!-- NO SPACES BEFORE OR AFTER BEGINNING AND END % SIGNS -->
+    {% block content %}
+    {% endblock content %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.4/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/js/bootstrap.min.js"></script>
+</body>
+</html>
